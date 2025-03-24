@@ -15,7 +15,7 @@ jobs:
     runs-on: ${{ matrix.os }}
     strategy:
       matrix:
-        dist: [ubuntu_x86_64, macos_x86_64, macos_arm64, win_x86_64]
+        dist: [ubuntu_x86_64, macos_x86_64, macos_arm64, win_x86_64, linux_arm64]
         prog: [makerom]
         include:
           - dist: ubuntu_x86_64
@@ -31,6 +31,9 @@ jobs:
             os: windows-latest
             arch: x86_64
             binExt: .exe
+          - dist: linux_arm64
+            os: Raspberry-Pi
+            arch: arm64
     steps:
       - uses: actions/checkout@v4
         with:
